@@ -1,0 +1,17 @@
+<input type="text" class="form-control" [(ngModel)]="username">
+<p>{{ username }}</p>
+<button 
+class="btn btn-primary"  
+[disabled]="ipempty()"
+(click)="reset()">buttonnnn</button>
+<hr>
+<!--<button
+class="btn btn-primary"
+(click)="show=!show">display details</button>-->
+<p *ngIf="show">showing display details  olihgyrgrxcjyhmvgf</p>
+
+<button
+class="btn btn-primary"
+(click)="togdetails()">display details</button>
+<div *ngFor="let inc of log"
+[ngStyle]="{backgroundColor: inc>4?'blue':'tranparent'}"> {{ inc }}  </div>

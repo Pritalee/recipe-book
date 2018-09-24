@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <label for="email">Email id:</label>
+          <input type="text"
+          id="email"
+          class="form-control" 
+          ngModel
+          name="email"
+          required
+          email
+          #email="ngModel">
+          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+
+          <select name="choice"  [ngModel]="defa">
+            <option value="Basic">Basic</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Pro">Pro</option>
+            </select>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" 
+              id="passw" 
+              class="form-control" 
+              ngModel name="passw" 
+              required
+              #passw="ngModel">
+              <span class="help-block" *ngIf="!passw.valid && passw.touched">Please enter a valid input</span>
+
+            </div>
+
+            <button class="btn btn-primary" 
+                    type="submit"
+                    [disabled]="!f.valid">Submit</button>
+        
+      </div>
+     </div>
+     
+
+
+    </div>
+  <div class=""row *ngIf="submitted">
+    <h3>your data</h3>
+    <p>Email id:{{ user.email}}</p>
+    <p>Choice:{{ user.choice}}</p>
+    <p>Password:{{ user.passw}}</p>
+  </div>
+</form>
